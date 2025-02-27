@@ -14,20 +14,12 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                primary: '#1E40AF',    // Bleu principal
+                secondary: '#9333EA',  // Violet secondaire
+            },
         },
     },
 
     plugins: [forms],
 };
-
-module.exports = {
-    theme: {
-      extend: {
-        colors: {
-          primary: '#1E40AF',    // Bleu principal
-          secondary: '#9333EA',   // Violet secondaire
-        },
-      },
-    },
-    plugins: [],
-  }

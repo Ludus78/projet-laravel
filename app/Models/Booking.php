@@ -24,4 +24,18 @@ class Booking extends Model
 {
     return $this->belongsTo(Property::class);
 }
+
+public function up()
+{
+    Schema::create('bookings', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('property_id')->constrained()->onDelete('cascade');
+        $table->string('name');
+        $table->date('date');
+        $table->time('time');
+        $table->integer('people');
+        $table->timestamps();
+    });
+}
+
 }
