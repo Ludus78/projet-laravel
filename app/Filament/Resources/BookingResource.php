@@ -14,7 +14,6 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 
 class BookingResource extends Resource
 {
@@ -58,7 +57,7 @@ class BookingResource extends Resource
     public static function getPages(): array
     {
         return [
-           'index' => Pages\ListBookings::route('/'),
+            'index' => Pages\ListBookings::route('/'),
             'create' => Pages\CreateBooking::route('/create'),
             'edit' => Pages\EditBooking::route('/{record}/edit'),
         ];

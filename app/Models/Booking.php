@@ -13,14 +13,15 @@ class Booking extends Model
     protected $fillable = ['user_id', 'property_id', 'start_date', 'end_date'];
 
     // Relation avec l'utilisateur
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
 
     // Relation avec la propriété
-    public function property(): BelongsTo
-    {
-        return $this->belongsTo(Property::class);
-    }
+    public function property()
+{
+    return $this->belongsTo(Property::class);
+}
 }

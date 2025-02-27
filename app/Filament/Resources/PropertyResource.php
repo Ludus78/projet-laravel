@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\TextColumn;
+use App\Enums\StatusEnum;
 
 class PropertyResource extends Resource
 {
@@ -38,12 +40,16 @@ class PropertyResource extends Resource
     }
 
     public static function table(Table $table): Table
-    {
-        return $table
+{
+    return $table
         ->columns([
             TextColumn::make('name')->sortable()->searchable(),
             TextColumn::make('price_per_night')->sortable()->money('EUR'),
             TextColumn::make('created_at')->dateTime(),
+            // Ajoutez votre nouvelle colonne ici
+            TextColumn::make('status')
+                ->getStateUsing(fn ($record) => StatusEnum::tryFrom($record->status) ?? 'Non défini')
+                ->placeholder('Aucun statut'),
         ])
         ->filters([
             //
@@ -51,13 +57,13 @@ class PropertyResource extends Resource
         ->actions([
             Tables\Actions\EditAction::make(),
             Tables\Actions\DeleteAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
-    }
+        ])
+        ->bulkActions([
+            Tables\Actions\BulkActionGroup::make([
+                Tables\Actions\DeleteBulkAction::make(),
+            ]),
+        ]);
+}
 
     public static function getRelations(): array
     {
