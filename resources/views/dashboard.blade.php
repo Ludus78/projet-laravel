@@ -12,6 +12,12 @@
                     {{ __("You're logged in!") }}
                 </div>
             </div>
+
+            <!-- Ajout du composant Livewire pour la réservation -->
+            <div class="mt-6 bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Effectuer une réservation</h3>
+                @livewire('reservation-component')
+            </div>
         </div>
     </div>
 </x-app-layout>

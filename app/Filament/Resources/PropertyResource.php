@@ -14,6 +14,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
 use App\Enums\StatusEnum;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+
 
 class PropertyResource extends Resource
 {
